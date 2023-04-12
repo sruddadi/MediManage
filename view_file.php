@@ -10,18 +10,17 @@ if (isset($_GET['id'])) {
         $row = $result->fetch_assoc();
         $filename = $row['report_name'];
 
-        // Set headers for file download
+
         header("Cache-Control: public");
         header("Content-Description: File Transfer");
         header("Content-Disposition: attachment; filename=$filename");
         header("Content-Type: application/zip");
         header("Content-Transfer-Encoding: binary");
 
-        // Generate the file path based on your file storage logic
-        // For example, if the files are stored in a directory named "uploads" on the server
+
         $filepath = 'uploads/' . $filename;
 
-        // Read the file and output it to the browser
+
         readfile($filepath);
         exit;
     } else {
