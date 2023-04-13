@@ -1,6 +1,10 @@
 <?php include('head.php'); ?>
 <?php include('header.php'); ?>
-<?php include('sidebar.php'); ?>
+<?php include('sidebar.php');
+?>
+
+
+
 
 
 <!-- Page wrapper  -->
@@ -25,7 +29,6 @@
         <!-- /# row -->
         <div class="table-responsive m-t-40">
             <table id="myTable" class="table table-bordered table-striped">
-
                 <thead>
                     <tr>
                         <th>Report Type</th>
@@ -42,7 +45,7 @@
                     <?php
                     include 'connect.php';
                     $email = $_SESSION["email"];
-                    $sql = "SELECT * FROM reports where email='$email'";
+                    $sql = "SELECT * FROM reports";
                     $result = $conn->query($sql);
 
                     while ($row = $result->fetch_assoc()) {
@@ -51,31 +54,33 @@
                             <td><?php echo $row['report_type']; ?></td>
                             <td><a href="view_file.php?id=<?php echo $row['id']; ?>"><?php echo $row['report_name']; ?></a></td>
                             <td><?php echo $row['email']; ?></td>
-                            <td> <a href="del_report.php?id=<?= $row['id']; ?>&path=<?= $row['report_name'] ?>"><button type="button" class="btn btn-xs btn-danger" data-for="js_question-popup"><i class="fa fa-trash"></i></button></a></td>
+                            <td> <a href="del_report.php?id=<?= $row['id']; ?>&path=<?= $row['report_name'] ?>"><button type="button" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button></a></td>
+
                         </tr>
                     <?php } ?>
                 </tbody>
+
             </table>
         </div>
 
         <!-- /# row -->
 
         <!-- End PAge Content -->
-        <?php include('footer.php'); ?>
-
-
-        // <!--  Author Name: Nikhil Bhalerao - www.nikhilbhalerao.com
+        <?php include('footer.php');
+                
+   
+//         <!--  Author Name: Nikhil Bhalerao - www.nikhilbhalerao.com
 // PHP, Laravel and Codeignitor Developer -->
 
 
-        <script>
-            var addButtonTrigger = function addButtonTrigger(el) {
-                el.addEventListener('click', function() {
-                    var popupEl = document.querySelector('.' + el.dataset.for);
-                    popupEl.classList.toggle('popup--visible');
-                });
-            };
+//         <script>
+//             var addButtonTrigger = function addButtonTrigger(el) {
+//                 el.addEventListener('click', function() {
+//                     var popupEl = document.querySelector('.' + el.dataset.for);
+//                     popupEl.classList.toggle('popup--visible');
+//                 });
+//             };
 
-            Array.from(document.querySelectorAll('button[data-for]')).
-            forEach(addButtonTrigger);
-        </script>
+//             Array.from(document.querySelectorAll('button[data-for]')).
+//             forEach(addButtonTrigger);
+//         </script>

@@ -114,7 +114,15 @@
 
                  <?php } ?>
 
-                 <?php if ($_SESSION["username"] == 'user' || $_SESSION["username"] == 'customer') { ?>
+                 <?php if ($_SESSION["username"] == 'user') { ?>
+                     <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-plus-square"></i><span class="hide-menu">Medical Reports</span></a>
+                         <ul aria-expanded="false" class="collapse">
+                             <li><a href="view_reportemployee.php">Manage reports</a></li>
+                         </ul>
+                     </li>
+                 <?php } ?>
+
+                 <?php if ($_SESSION["username"] == 'customer') { ?>
                      <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-plus-square"></i><span class="hide-menu">Medical Reports</span></a>
                          <ul aria-expanded="false" class="collapse">
                              <li><a href="add_report.php">Add report</a></li>
