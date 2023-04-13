@@ -86,7 +86,11 @@ if (isset($_GET['id'])) { ?>
 
                     <?php if (isset($useroles)) {
                       if (in_array("delete_services", $useroles)) { ?>
+                        <a href="edit_services.php?id=<?= $row['id']; ?>"><button type="button" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i></button></a>
                         <a href="view_services.php?id=<?= $row['id']; ?>"><button type="button" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button></a>
+                      <?php } else { ?>
+                        N/A
+
                     <?php }
                     } ?>
 
